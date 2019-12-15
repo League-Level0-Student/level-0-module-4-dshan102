@@ -18,7 +18,7 @@ public class FruitQuiz extends KeyAdapter {
 		// 11. Make another question called "question2".  Use question1 above as a guide.
 		question2 = new JLabel("<html>Which is not a real vegetable? <br> A: Garden Rocket <br> B: Fat Hen <br> C: Tomato</html>");
 		question3 = new JLabel("<html>Which is true? <br> A: This is the third question <br> B: This is answer C <br> C: You are not reading this</html>");
-		question4 = new JLabel("<html>What day is it? <br> A: Sunday, duh <br> B: No, it's Monday <br> C: The day that this question was asked</html>");
+		question4 = new JLabel("<html>What day is it? <br> A: Sunday, duh <br> B: It depends <br> C: It is Wednesday my dudes</html>");
 	}
 
 	@Override
@@ -54,6 +54,53 @@ public class FruitQuiz extends KeyAdapter {
 			}
 		
 		}
+		else if (question2.isShowing()) {
+			// 3. If they selected the right fruit, do steps 4 and 7
+			if(keyCode == 67) {
+				
+				// 4. Call the correct() method
+				correct();
+				// 7. Use the nextQuestion() method to go to question2
+				nextQuestion(question3);
+			}
+			// 8. else (if they touched something else)
+			else {
+				// 9. Call the incorrect() method
+				incorrect();
+			}
+		
+		}
+		else if (question3.isShowing()) {
+			// 3. If they selected the right fruit, do steps 4 and 7
+			if(keyCode == 65) {
+				
+				// 4. Call the correct() method
+				correct();
+				// 7. Use the nextQuestion() method to go to question2
+				nextQuestion(question4);
+			}
+			
+			// 8. else (if they touched something else)
+			else {
+				// 9. Call the incorrect() method
+				incorrect();
+			}
+		
+		}
+		else if (question4.isShowing()) {
+			// 3. If they selected the right fruit, do steps 4 and 7
+			if(keyCode == 66) {
+				
+				// 4. Call the correct() method
+				correct();
+			}
+			// 8. else (if they touched something else)
+			else {
+				// 9. Call the incorrect() method
+				incorrect();
+			}
+		
+		}
 
 	}
 
@@ -62,12 +109,14 @@ public class FruitQuiz extends KeyAdapter {
 		// the 'extra' package. It must be a .wav file. 
 		// There are lots on freesound.org
 		// 6. Use the playSound method to play your sound
+		playSound("correct.wav");
 
 
 	}
 
 	private void incorrect() {
 		// 10. Find a sound for wrong answers and put it in the default package. Use the playSound method to play it.
+		playSound("wrong.wav");
 
 	}
 
